@@ -1,0 +1,40 @@
+.user_card {
+    width: 400px;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid #D2D2D2;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.form-input {
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.login_container {
+    margin-top: 100px!important;
+}
+
+.input-group-text {
+    height: 48px!important;
+    position: relative!important;
+    top: -5px!important;
+    background: #fff!important;
+    border-right: none!important;
+}
+
+.form-input input {
+    border-left: none;
+}
