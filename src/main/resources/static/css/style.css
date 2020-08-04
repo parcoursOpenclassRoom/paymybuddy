@@ -38,3 +38,58 @@
 .form-input input {
     border-left: none;
 }
+
+.navpay {
+    width: 100%;
+    direction: rtl;
+    display: flex;
+    justify-content: end;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #040404!important;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: #3975D5!important;
+}
+
+.send-block {
+    width: 60%;
+}
+
+.send-infos {
+    margin-top: 20px;
+}
+
+.card-form {
+    width: 73%;
+    background-color: #F5F5F5!important;
+    border: none!important;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.table-transac {
+    width: 73%;
+    margin-top: 20px;
+}
+
+.table .thead-dark th {
+    color: #fff!important;
+    background-color: #74B666!important;
+    border-color: #74B666!important;
+    padding: 20px!important;
+}
+
+.table td, .table th {
+    padding: 20px!important;
+    border-top: none!important;
+}
+
+.table {
+    border: 2px solid;
+}
+.error{
+    color: red;
+}

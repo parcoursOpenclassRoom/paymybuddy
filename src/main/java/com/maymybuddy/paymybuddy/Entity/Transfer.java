@@ -1,15 +1,26 @@
 package com.maymybuddy.paymybuddy.Entity;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class Transfer {
     private int id;
     private boolean status;
-    private int amount;
+    @NotNull
+    @Min(1)
+    private double amount;
+    @NotNull
+    @Size(min=0, max=300)
     private String description;
+    @NotNull
+    @Min(1)
+    private int user = 0;
     private Date created;
     private Date modified;
 
+    private String receiverName;
     private Account sender;
     private Account receiver;
 
@@ -23,14 +34,6 @@ public class Transfer {
 
     public void setStatus(boolean status) {
         this.status = status;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
     }
 
     public String getDescription() {
@@ -71,5 +74,29 @@ public class Transfer {
 
     public void setReceiver(Account receiver) {
         this.receiver = receiver;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public int getUser() {
+        return user;
+    }
+
+    public void setUser(int user) {
+        this.user = user;
+    }
+
+    public String getReceiverName() {
+        return receiverName;
+    }
+
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
     }
 }
