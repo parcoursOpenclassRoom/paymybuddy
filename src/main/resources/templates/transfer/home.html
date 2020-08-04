@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}">
+
+<head>
+    <title>Transfer</title>
+</head>
+
+<body>
+    <section layout:fragment="content">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <button style="border: none; background-color: #85BC61;" type="button" class="btn btn-success">Pay My
+                    Buddy</button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto navpay">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Log off </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Profile</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/home">Transfer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#">Home /</a>
+                        <a class="nav-item nav-link" href="#">Transfer</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="d-flex justify-content-center send-infos">
+                <div class="send-block">
+                    <h3>Send Money </h3>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary">Add connection</button>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="card card-form">
+                    <div class="card-body">
+                        <form class="form-inline" action="#" method="post" th:action="@{/home}" th:object="${transfer}">
+                            <div class="col-12">
+                                <div th:if="${confirm}" class="alert alert-success" role="alert" >
+                                    <span>Confirmed transfer</span>
+                                </div>
+                                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('user') || #fields.hasErrors('amount') || #fields.hasErrors('description')}"  > 
+                                    <span th:if="${#fields.hasErrors('user')}" th:errors="*{user}"></span>
+                                <span th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></span>
+                                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+                            </div>
+                           </div>
+                            <div class="form-group  mx-sm-2 mb-2 col-3">
+                                <select th:field="*{user}" class="form-control" style="width: 100%;" required
+                                    placeholder="Select a connection" >
+                                    <option th:value="0">Select a connection</option>
+                                    <option th:each="user : ${users}" th:value="${user.id}"
+                                        th:text="${user.profil.name}"></option>
+                                </select>
+                            </div>
+                            <div style="margin-left: -23px!important;position: relative;
+                            top: 11px;" class="form-group mb-2 col-3  mx-sm-2">
+                                <input type="number" class="form-control" min="1" value="0" required
+                                    placeholder="Amount" th:field="*{amount}"> <br />
+                            </div>
+                            <div class="form-group mb-2 col-3  mx-sm-2">
+                                <input type="text" class="form-control" placeholder="Description"
+                                    th:field="*{description}" required>
+                            </div>
+                            <button type="submit" class="btn btn-success mb-2 col-2  mx-sm-3">Pay</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="table-transac">
+                    <h3>My transactions</h3>
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Connections</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="trans : ${transfers}">
+                                <td><span th:text="${trans.receiverName}"></span></td>
+                                <td><span th:text="${trans.description}"></span></td>
+                                <td><span th:text="${trans.amount}"></span>€</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: center;">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
