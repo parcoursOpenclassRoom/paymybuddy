@@ -18,7 +18,7 @@ CREATE TABLE `account` (
   `default_account` bit(1) NOT NULL,
   `modified` datetime(6) DEFAULT NULL,
   `user_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) 
 
 --
 -- Déchargement des données de la table `account`
@@ -44,7 +44,7 @@ CREATE TABLE `connection` (
   `status` bit(1) NOT NULL,
   `receiver_id` int NOT NULL,
   `sender_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) 
 
 --
 -- Déchargement des données de la table `connection`
@@ -59,28 +59,6 @@ INSERT INTO `connection` (`id`, `created`, `modified`, `status`, `receiver_id`, 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `hibernate_sequence`
---
-
-CREATE TABLE `hibernate_sequence` (
-  `next_val` bigint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `hibernate_sequence`
---
-
-INSERT INTO `hibernate_sequence` (`next_val`) VALUES
-(28),
-(28),
-(28),
-(28),
-(28),
-(28);
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `profil`
 --
 
@@ -88,7 +66,7 @@ CREATE TABLE `profil` (
   `id` int NOT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Déchargement des données de la table `profil`
@@ -115,7 +93,7 @@ CREATE TABLE `transaction` (
   `modified` datetime(6) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
   `account_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Déchargement des données de la table `transaction`
@@ -145,7 +123,7 @@ CREATE TABLE `transfer` (
   `status` bit(1) NOT NULL,
   `receiver_id` int NOT NULL,
   `sender_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) 
 
 --
 -- Déchargement des données de la table `transfer`
@@ -171,7 +149,7 @@ CREATE TABLE `users` (
   `modified` datetime(6) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `profil_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) 
 
 --
 -- Déchargement des données de la table `users`

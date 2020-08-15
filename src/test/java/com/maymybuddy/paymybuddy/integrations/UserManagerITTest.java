@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.test.context.TestPropertySource;
 
 import java.util.List;
 
@@ -18,7 +19,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-public class UserManagerIT {
+@TestPropertySource(locations="classpath:application.test.properties")
+public class UserManagerITTest {
     @Autowired
     UserManagerImpl userManager;
 
